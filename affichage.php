@@ -15,8 +15,8 @@
                     <div class="row">
                         <img src=<?php if(isset($_GET["nomFond"])){ echo $_GET["nomFond"];}?> height="100" width="auto">
                         <div>
-                            <div> Taille=<?php if(isset($_GET["nomFond"])){ echo filesize($_GET["nomFond"]);}?> </div>
-                            <div> Date_création= <?php if(isset($_GET["nomFond"])){ echo filemtime ($_GET["nomFond"]);}?> </div>
+                            <div> Taille=<?php if(isset($_GET["nomFond"])){ echo round ((filesize($_GET["nomFond"])/1024));}?> Ko</div>
+                            <div> Date_création= <?php if(isset($_GET["nomFond"])){ echo date('d/m/Y', filemtime($_GET["nomFond"]));}?> </div>
                         </div>
                     </div>
                 </div>
@@ -25,8 +25,8 @@
                     <div class="row">
                         <img src=<?php if(isset($_GET["nomTemplate"])){ echo $_GET["nomTemplate"];}?> height="100" width="auto">
                         <div>
-                            <div>Taille= </div>
-                            <div>Date_création= </div>
+                            <div>Taille=<?php if(isset($_GET["nomTemplate"])){ echo round ((filesize($_GET["nomTemplate"])/1024));}?> Ko </div>
+                            <div>Date_création=<?php if(isset($_GET["nomTemplate"])){ echo date('d/m/Y', filemtime($_GET["nomTemplate"]));}?></div>
                         </div>
                     </div>
                 </div>
@@ -35,12 +35,17 @@
                     <div class="row">
                         <img src=<?php if(isset($_GET["nomResultat"])){ echo $_GET["nomResultat"];}?> height="100" width="auto" >
                         <div>
-                           <div>Taille= </div>
-                            <div>Date_création= </div>
+                           <div> Taille=<?php if(isset($_GET["nomResultat"])){ echo round ((filesize($_GET["nomResultat"])/1024));}?> Ko </div>
+                            <div>Date_création=<?php if(isset($_GET["nomResultat"])){ echo date('d/m/Y', filemtime($_GET["nomResultat"]));}?> </div>
                         </div>
                     </div>
                 </div>
 		   	</div>
     	</form>
+        <div class="droite">
+            <form action="index.php" method="post">
+                <input class="bold" type="submit" value="Retour"/>
+            </form>
+        </div>
     </body>
 </html>
